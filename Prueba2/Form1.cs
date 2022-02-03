@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Windows.Forms;using System.Data;
 
 namespace Prueba2
 
@@ -15,13 +15,28 @@ namespace Prueba2
     {
         //  Variables
         String task;
-        String task2;
-        int task_numer = 0;
+
+        int ntask2;
+
+        int task_number = 0;
+
         int task_complete = 0;
+
+        Random rnd = new Random();
+
+        Clases.Conect objecConex = new Clases.Conect();
+
+       
 
         public Form1()
         {
+
+        
             InitializeComponent();
+
+            String time = "HH:mm";
+
+            label7.Text = time;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -36,11 +51,26 @@ namespace Prueba2
 
         private void button2_Click(object sender, EventArgs e)
         {
+            /*if (listView1.SelectedItems.Count > 0)
+            {
+                task2 = listView1.SelectedItems[0].Text;
 
-            task2 = listView1.SelectedItems[0].Text;
-            listView3.Items.Add(task2);
-            listView1.SelectedItems[0].Remove();
+                listView3.Items.Add(task2);
+
+                listView1.SelectedItems[0].Remove();
+
+                task_complete++;
+
+                label6.Text = "Complete: " + task_complete; 
+            }
+            else
+            {
+                MessageBox.Show("Please select an item before assigning a value.");
+
+            }*/
+
             task_complete++;
+
             label6.Text = "Complete: " + task_complete;
 
         }
@@ -57,15 +87,23 @@ namespace Prueba2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == null)
+            if (textBox1.TextLength == 0)
             {
-                textBox1.AppendText("Please put the task");
+                MessageBox.Show("Please put the task");
             }
             else
             {
-                task_numer++;
+
+                task_number = rnd.Next(0, 9999);
+
                 task = this.textBox1.Text;
-                listView1.Items.Add(task_numer + " " + task);
+
+                objecConex.insert(task_number, task);
+
+                DataTable dataTable = objecConex.select();
+
+                dataGridView2.DataSource = dataTable;
+
             }
         }
 
@@ -76,7 +114,7 @@ namespace Prueba2
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+  
         }
 
         private void listView3_SelectedIndexChanged(object sender, EventArgs e)
@@ -96,9 +134,29 @@ namespace Prueba2
 
         private void button4_Click(object sender, EventArgs e)
         {
-            task2 = listView1.SelectedItems[0].Text;
-            listView2.Items.Add(task2);
-            listView1.SelectedItems[0].Remove();
+            /*if (listView1.SelectedItems.Count > 0)
+            {
+                task2 = listView1.SelectedItems[0].Text;
+
+                listView2.Items.Add(task2);
+
+                listView1.SelectedItems[0].Remove();
+            }
+            else
+
+            {
+                MessageBox.Show("Please select an item before assigning a value.");
+
+            }*/
+
+            ntask2 = Int32.Parse(textBox2.Text);
+
+            objecConex.delete(ntask2);
+
+            DataTable dataTable = objecConex.select();
+
+            dataGridView2.DataSource = dataTable;
+
         }
 
         private void label5_Click_1(object sender, EventArgs e)
@@ -111,6 +169,47 @@ namespace Prueba2
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            objecConex.stablishConection();
+
+            DataTable dataTable = objecConex.select();
+
+            dataGridView2.DataSource = dataTable;
+   
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Datos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
