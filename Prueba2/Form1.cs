@@ -140,7 +140,11 @@ namespace Prueba2
 
             DataTable dataTable = objecConex.select();
 
+            DataTable dataTable2 = objecConex.select2();
+
             dataGridView2.DataSource = dataTable;
+
+            dataGridView1.DataSource = dataTable2;
 
             MessageBox.Show("Your data it's delete");
 
