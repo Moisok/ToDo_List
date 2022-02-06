@@ -51,27 +51,26 @@ namespace Prueba2
 
         private void button2_Click(object sender, EventArgs e)
         {
-            /*if (listView1.SelectedItems.Count > 0)
-            {
-                task2 = listView1.SelectedItems[0].Text;
 
-                listView3.Items.Add(task2);
+            ntask2 = Int32.Parse(textBox2.Text);
 
-                listView1.SelectedItems[0].Remove();
+            objecConex.copy_data(ntask2);
 
-                task_complete++;
+            objecConex.delete(ntask2);
 
-                label6.Text = "Complete: " + task_complete; 
-            }
-            else
-            {
-                MessageBox.Show("Please select an item before assigning a value.");
+            DataTable dataTable = objecConex.select();
 
-            }*/
+            DataTable dataTable2 = objecConex.select2();
 
             task_complete++;
 
-            label6.Text = "Complete: " + task_complete;
+            dataGridView2.DataSource = dataTable;
+
+            dataGridView1.DataSource = dataTable2;
+
+            label6.Text = "Complete sesion task: " + task_complete;
+
+            MessageBox.Show("Your task it's complete CONGRATULATIONS");
 
         }
 
@@ -134,21 +133,7 @@ namespace Prueba2
 
         private void button4_Click(object sender, EventArgs e)
         {
-            /*if (listView1.SelectedItems.Count > 0)
-            {
-                task2 = listView1.SelectedItems[0].Text;
-
-                listView2.Items.Add(task2);
-
-                listView1.SelectedItems[0].Remove();
-            }
-            else
-
-            {
-                MessageBox.Show("Please select an item before assigning a value.");
-
-            }*/
-
+           
             ntask2 = Int32.Parse(textBox2.Text);
 
             objecConex.delete(ntask2);
@@ -156,6 +141,8 @@ namespace Prueba2
             DataTable dataTable = objecConex.select();
 
             dataGridView2.DataSource = dataTable;
+
+            MessageBox.Show("Your data it's delete");
 
         }
 
@@ -185,8 +172,12 @@ namespace Prueba2
 
             DataTable dataTable = objecConex.select();
 
+            DataTable dataTable2 = objecConex.select2();
+
             dataGridView2.DataSource = dataTable;
-   
+            
+            dataGridView1.DataSource = dataTable2;
+
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -210,6 +201,11 @@ namespace Prueba2
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

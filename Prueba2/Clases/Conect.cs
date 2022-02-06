@@ -30,15 +30,16 @@ namespace Prueba2.Clases
                 MessageBox.Show("You have connected to the database");
 
             }catch(NpgsqlException e){
+
                 MessageBox.Show("Could not connect to the database: "+ e.ToString());
             }
+
             return conect;
         }
 
         public void insert(int id_task, String task_desp)
         {
             String query = "Insert into \"pending_task\" values(" + id_task + ",'" + task_desp + "');";
-
             Npgsql.NpgsqlCommand executor = new Npgsql.NpgsqlCommand(query, conect);
             executor.ExecuteNonQuery();
             MessageBox.Show("Your data it's save");
@@ -59,14 +60,33 @@ namespace Prueba2.Clases
 
         }
 
+        public DataTable select2()
+        {
+            String query = "SELECT * " + "  FROM \"complete_task\";";
+            Npgsql.NpgsqlCommand conector = new Npgsql.NpgsqlCommand(query, conect);
+            Npgsql.NpgsqlDataAdapter datos = new Npgsql.NpgsqlDataAdapter(conector);
+            DataTable tabla = new DataTable();
+            datos.Fill(tabla);
+
+            return tabla;
+
+        }
+
         public void delete(int id)
         {
             String query = "Delete from \"pending_task\"where \"id_task\" = " + id + " ";
             Npgsql.NpgsqlCommand execute = new Npgsql.NpgsqlCommand(query,conect);  
             //conect.Open();
             execute.ExecuteNonQuery();
-            MessageBox.Show("Your data it's delete");
             //conect.Close();
+        }
+
+        public void copy_data(int id)
+        {
+            String query = "INSERT INTO complete_task (id_task, task_description) SELECT * FROM pending_task WHERE id_task = " + id + ";";
+            Npgsql.NpgsqlCommand executor = new Npgsql.NpgsqlCommand(query, conect);
+            executor.ExecuteNonQuery();
+            
         }
     }
 }
