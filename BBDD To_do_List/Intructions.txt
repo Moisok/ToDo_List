@@ -1,0 +1,7 @@
+
+
+1: For this app you need PostGreSQL
+
+2: Only import this file in your PostgreSQL database
+
+3: The password it's: admin
