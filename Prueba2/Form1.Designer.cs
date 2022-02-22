@@ -38,7 +38,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.npgsqlDataAdapter1 = new Npgsql.NpgsqlDataAdapter();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -46,6 +45,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            this.button5 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
@@ -144,7 +144,6 @@
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.SystemColors.Window;
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -153,20 +152,10 @@
             this.label6.Location = new System.Drawing.Point(782, 457);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(195, 26);
+            this.label6.Size = new System.Drawing.Size(228, 26);
             this.label6.TabIndex = 16;
             this.label6.Text = "Complete sesion task:";
             this.label6.Click += new System.EventHandler(this.label6_Click_2);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1137, 529);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 16);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "label7";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // button3
             // 
@@ -231,6 +220,16 @@
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(782, 515);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(160, 30);
+            this.button5.TabIndex = 25;
+            this.button5.Text = "PostgreSQL Guide";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -238,12 +237,12 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.LightSlateGray;
             this.ClientSize = new System.Drawing.Size(1193, 554);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -279,7 +278,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button3;
         private Npgsql.NpgsqlDataAdapter npgsqlDataAdapter1;
         private System.Windows.Forms.TextBox textBox2;
@@ -287,6 +285,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
+        private System.Windows.Forms.Button button5;
     }
 }
 

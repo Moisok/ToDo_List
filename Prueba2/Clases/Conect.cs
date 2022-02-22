@@ -14,7 +14,7 @@ namespace Prueba2.Clases
         NpgsqlConnection conect = new NpgsqlConnection();
 
         static String server = "localhost";
-        static String bd = "ToDoList" ; //Database
+        static String bd = "postgres" ; //Database
         static String user = "postgres"; //user
         static String password = "admin"; //Password
         static String port = "5432"; //port 
@@ -31,7 +31,9 @@ namespace Prueba2.Clases
 
             }catch(NpgsqlException e){
 
-                MessageBox.Show("Could not connect to the database: "+ e.ToString());
+               MessageBox.Show("It has not been possible to connect to the database, if the error continues, visit the following link. \n https://docs.google.com/document/d/1lEHHdxeZHCsM2Cl567uuvTt-9Z1Fcbth1aivH50MH38/edit?usp=sharing");
+                
+                
             }
 
             return conect;

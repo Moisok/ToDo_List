@@ -34,9 +34,7 @@ namespace Prueba2
         
             InitializeComponent();
 
-            String time = "HH:mm";
 
-            label7.Text = time;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -212,6 +210,13 @@ namespace Prueba2
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            
+            ToDoList.TutorialSQL tut = new ToDoList.TutorialSQL();
+            tut.Show();
         }
     }
 }
